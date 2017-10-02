@@ -1,7 +1,5 @@
 package org.pulem3t.tasks.entry;
 
-import java.util.UUID;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -56,7 +54,7 @@ public class Task {
 	private long deadLine;
 
 	public Task() {
-		this.id = UUID.randomUUID().toString();
+		this.id = "";
 		this.prefix = "";
 		this.title = "";
 		this.author = null;

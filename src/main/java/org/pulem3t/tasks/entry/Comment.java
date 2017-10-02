@@ -2,7 +2,6 @@ package org.pulem3t.tasks.entry;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -46,7 +45,7 @@ public class Comment {
 	private long lastmodDate;
 	
 	public Comment() {
-		this.id = UUID.randomUUID().toString();
+		this.id = "";
 		this.author = null;
 		this.task = null;
 		this.text = "";

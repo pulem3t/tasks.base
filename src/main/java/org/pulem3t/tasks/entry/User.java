@@ -2,7 +2,6 @@ package org.pulem3t.tasks.entry;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -54,7 +53,7 @@ public class User {
 	private long lastmodDate;
 	
 	public User(){
-		this.id = UUID.randomUUID().toString();
+		this.id = "";
 		this.firstName = "";
 		this.lastName = "";
 		this.patronym = "";
