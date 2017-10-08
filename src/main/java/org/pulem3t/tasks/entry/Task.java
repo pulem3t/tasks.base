@@ -29,9 +29,6 @@ public class Task {
 	@OneToOne
 	private User author;
 	
-	@OneToOne
-	private Task parentTask;
-	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private User performer;
 	
@@ -58,7 +55,6 @@ public class Task {
 		this.prefix = "";
 		this.title = "";
 		this.author = null;
-		this.parentTask = null;
 		this.performer = null;
 		this.description = "";
 		this.status = Status.NEW.getStatus();
@@ -76,7 +72,6 @@ public class Task {
 		o.put("prefix", this.prefix);
 		o.put("title", this.title);
 		o.put("author", this.author);
-		o.put("parentTask", this.parentTask);
 		o.put("performer", this.performer);
 		o.put("description", this.description);
 		o.put("status", this.status);
@@ -117,14 +112,6 @@ public class Task {
 	
 	public void setAuthor(User author) {
 		this.author = author;
-	}
-	
-	public Task getParentTask() {
-		return parentTask;
-	}
-	
-	public void setParentTask(Task parentTask) {
-		this.parentTask = parentTask;
 	}
 	
 	public User getPerformer() {

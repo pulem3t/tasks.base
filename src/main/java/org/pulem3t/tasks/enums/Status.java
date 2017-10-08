@@ -1,6 +1,7 @@
 package org.pulem3t.tasks.enums;
 
 public enum Status {
+	TEMP (-1),
 	NEW (0),
 	IN_WORK (1),
 	CLOSED (2),
