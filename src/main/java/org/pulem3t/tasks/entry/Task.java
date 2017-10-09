@@ -61,7 +61,6 @@ public class Task {
 		this.priority = 0;
 		this.createDate = System.currentTimeMillis();
 		this.lastmodDate = System.currentTimeMillis();
-		this.lastmodDate = 0;
 		this.deadLine = 0;
 	}
 	
