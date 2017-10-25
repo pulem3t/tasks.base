@@ -15,34 +15,37 @@ import javax.persistence.Table;
 
 import org.json.JSONObject;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "COMMENTS")
 public class Comment {
 
 	@Id
 	@Column(name = "ID")
-	private String id;
+	@Getter @Setter private String id;
 	
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private User author;
+	@Getter @Setter private User author;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Task task;
+	@Getter @Setter private Task task;
 	
 	@Column(name = "TEXT")
-	private String text;
+	@Getter @Setter private String text;
 	
 	@Column(name = "RATING")
-	private int rating;
+	@Getter @Setter private int rating;
 	
 	@ElementCollection
-	private List<User> relatedUsers;
+	@Getter @Setter private List<User> relatedUsers;
 	
 	@Column(name = "CREATEDATE")
-	private long createDate;
+	@Getter @Setter private long createDate;
 	
 	@Column(name = "LASTMODDATE")
-	private long lastmodDate;
+	@Getter @Setter private long lastmodDate;
 	
 	public Comment() {
 		this.id = "";
@@ -67,65 +70,5 @@ public class Comment {
 		o.put("createDate", this.createDate);
 		o.put("lastmodDate", this.lastmodDate);
 		return o.toString();
-	}
-	
-	public String getId() {
-		return id;
-	}
-	
-	public User getAuthor() {
-		return author;
-	}
-	
-	public void setAuthor(User author) {
-		this.author = author;
-	}
-	
-	public String getText() {
-		return text;
-	}
-	
-	public void setText(String text) {
-		this.text = text;
-	}
-	
-	public long getCreateDate() {
-		return createDate;
-	}
-	
-	public long getLastmodDate() {
-		return lastmodDate;
-	}
-	
-	public void setLastmodDate(long lastmodDate) {
-		this.lastmodDate = lastmodDate;
-	}
-
-	public int getRating() {
-		return rating;
-	}
-
-	public void setRating(int rating) {
-		this.rating = rating;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public Task getTask() {
-		return task;
-	}
-
-	public void setTask(Task task) {
-		this.task = task;
-	}
-
-	public List<User> getRelatedUsers() {
-		return relatedUsers;
-	}
-
-	public void setRelatedUsers(List<User> relatedUsers) {
-		this.relatedUsers = relatedUsers;
 	}
 }

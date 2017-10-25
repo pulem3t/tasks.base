@@ -12,43 +12,46 @@ import javax.persistence.Table;
 import org.json.JSONObject;
 import org.pulem3t.tasks.enums.Status;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "TASKS")
 public class Task {
 	
 	@Id
 	@Column(name = "ID")
-	private String id;
+	@Getter @Setter private String id;
 	
 	@Column(name = "PREFIX")
-	private String prefix;
+	@Getter @Setter private String prefix;
 	
 	@Column(name = "TITLE")
-	private String title;
+	@Getter @Setter private String title;
 	
 	@OneToOne
-	private User author;
+	@Getter @Setter private User author;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private User performer;
+	@Getter @Setter private User performer;
 	
 	@Column(name = "DESCRIPTION")
-	private String description;
+	@Getter @Setter private String description;
 	
 	@Column(name = "STATUS")
-	private int status;
+	@Getter @Setter private int status;
 	
 	@Column(name = "PRIORITY")
-	private int priority;
+	@Getter @Setter private int priority;
 	
 	@Column(name = "CREATEDATE")
-	private long createDate;
+	@Getter @Setter private long createDate;
 	
 	@Column(name = "LASTMODDATE")
-	private long lastmodDate;
+	@Getter @Setter private long lastmodDate;
 	
 	@Column(name = "DEADLINE")
-	private long deadLine;
+	@Getter @Setter private long deadLine;
 
 	public Task() {
 		this.id = "";
@@ -79,93 +82,5 @@ public class Task {
 		o.put("lastmodDate", this.lastmodDate);
 		o.put("deadLine", this.deadLine);
 		return o.toString();
-	}
-	
-	public String getId() {
-		return id;
-	}
-	
-	public void setId(String id) {
-		this.id = id;
-	}
-	
-	public String getPrefix() {
-		return prefix;
-	}
-	
-	public void setPrefix(String prefix) {
-		this.prefix = prefix;
-	}
-	
-	public String getTitle() {
-		return title;
-	}
-	
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	
-	public User getAuthor() {
-		return author;
-	}
-	
-	public void setAuthor(User author) {
-		this.author = author;
-	}
-	
-	public User getPerformer() {
-		return performer;
-	}
-	
-	public void setPerformerId(User performer) {
-		this.performer = performer;
-	}
-	
-	public String getDescription() {
-		return description;
-	}
-	
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
-	public int getStatus() {
-		return status;
-	}
-	
-	public void setStatus(int status) {
-		this.status = status;
-	}
-	
-	public int getPriority() {
-		return priority;
-	}
-	
-	public void setPriority(int priority) {
-		this.priority = priority;
-	}
-	
-	public long getCreateDate() {
-		return createDate;
-	}
-	
-	public void setCreateDate(long createDate) {
-		this.createDate = createDate;
-	}
-	
-	public long getLastmodDate() {
-		return lastmodDate;
-	}
-	
-	public void setLastmodDate(long lastmodDate) {
-		this.lastmodDate = lastmodDate;
-	}
-	
-	public long getDeadLine() {
-		return deadLine;
-	}
-	
-	public void setDeadLine(long deadLine) {
-		this.deadLine = deadLine;
 	}
 }

@@ -11,46 +11,49 @@ import javax.persistence.Table;
 import org.json.JSONObject;
 import org.pulem3t.tasks.enums.Role;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "USERS")
 public class User {
 	
 	@Id
 	@Column(name = "ID")
-	private String id;
+	@Getter @Setter private String id;
 	
 	@Column(name = "FIRSTNAME")
-	private String firstName;
+	@Getter @Setter private String firstName;
 	
 	@Column(name = "LASTNAME")
-	private String lastName;
+	@Getter @Setter private String lastName;
 	
 	@Column(name = "PATRONYM")
-	private String patronym;
+	@Getter @Setter private String patronym;
 	
 	@Column(name = "EMAIL")
-	private String email;
+	@Getter @Setter private String email;
 	
 	@Column(name = "PHONE")
-	private String phone;
+	@Getter @Setter private String phone;
 	
 	@Column(name = "COMPANY")
-	private String company;
+	@Getter @Setter private String company;
 	
 	@Column(name = "ADMINROLE")
-	private boolean adminRole;
+	@Getter @Setter private boolean adminRole;
 	
 	@Column(name = "USERROLE")
-	private boolean userRole;
+	@Getter @Setter private boolean userRole;
 	
 	@Column(name = "SUPPORTROLE")
-	private boolean supportRole;
+	@Getter @Setter private boolean supportRole;
 	
 	@Column(name = "CREATEDATE")
-	private long createDate;
+	@Getter @Setter private long createDate;
 	
 	@Column(name = "LASTMODDATE")
-	private long lastmodDate;
+	@Getter @Setter private long lastmodDate;
 	
 	public User(){
 		this.id = "";
@@ -81,120 +84,12 @@ public class User {
 		o.put("lastmodDate", lastmodDate);
 		return o.toString();
 	}
-	
-	public String getId() {
-		return id;
-	}
-	
-	public void setId(String id) {
-		this.id = id;
-	}
-	
-	public String getFirstName() {
-		return firstName;
-	}
-	
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	
-	public String getLastName() {
-		return lastName;
-	}
-	
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	
-	public String getPatronym() {
-		return patronym;
-	}
-	
-	public void setPatronym(String patronym) {
-		this.patronym = patronym;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	public String getPhone() {
-		return phone;
-	}
-	
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	
-	public String getCompany() {
-		return company;
-	}
-	
-	public void setCompany(String company) {
-		this.company = company;
-	}
-	
+
 	public List<String> getRoles() {
 		List<String> roles = new ArrayList<>();
 		if(adminRole) roles.add(Role.ADMINISTRATOR.getRole());
 		if(userRole) roles.add(Role.USER.getRole());
 		if(supportRole) roles.add(Role.SUPPORT.getRole());
 		return roles;
-	}
-	
-	public void setAdminRole(boolean set) {
-		if(set){
-			this.adminRole = true;
-		}else{
-			this.adminRole = false;
-		}
-	}
-	
-	public void setUserRole(boolean set) {
-		if(set){
-			this.userRole = true;
-		}else{
-			this.userRole = false;
-		}
-	}
-	
-	public void setSupportRole(boolean set) {
-		if(set){
-			this.supportRole = true;
-		}else{
-			this.supportRole = false;
-		}
-	}
-	
-	public long getCreateDate() {
-		return createDate;
-	}
-	
-	public void setCreateDate(long createDate) {
-		this.createDate = createDate;
-	}
-	
-	public long getLastmodDate() {
-		return lastmodDate;
-	}
-	
-	public void setLastmodDate(long lastmodDate) {
-		this.lastmodDate = lastmodDate;
-	}
-
-	public boolean isAdminRole() {
-		return adminRole;
-	}
-
-	public boolean isUserRole() {
-		return userRole;
-	}
-
-	public boolean isSupportRole() {
-		return supportRole;
 	}
 }
